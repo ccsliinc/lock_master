@@ -1,0 +1,83 @@
+clear_slot:
+  description: Reset code slot from lock. Supports ozw and zwave locks.
+  fields:
+    entity_id:
+      description: The entity_id of the slot you are attempting to clear.
+      example: sensor.front_north_code_slot_1
+
+refresh_codes:
+  description: Refresh lock codes from the lock.
+  fields:
+    entity_id:
+      description: The entity_id of the lock you are attempting to refresh the codes of only works for OZW
+      example: lock.frontdoor_locked
+
+reset_lock:
+  description: Reset all slots on a lock.
+  fields:
+    entity_id:
+      description: The entity_id of the lock you are attempting to reset the codes
+      example: lock.frontdoor_locked
+
+update_slot:
+  description: Update code slot from lock. Supports ozw and zwave locks.
+  fields:
+    entity_id:
+      description: The entity_id of the slot you are attempting to clear.
+      example: sensor.front_north_code_slot_1
+    user_code:
+      description: The new code for the slot.
+      example: 123456
+
+slot_enabled:
+  description: Enable or Disable code slot.
+  fields:
+    entity_id:
+      description: The entity_id of the slot you are attempting to clear.
+      example: sensor.front_north_code_slot_1
+    slot_enabled:
+      description: Should this code slot be enabled
+      example: True
+
+update_settings:
+  description: Add settings to slot.  This will replace all settings on the code slot.
+  fields:
+    entity_id:
+      description: The entity_id of the slot you are attempting to clear.
+      example: sensor.front_north_code_slot_1
+    settings:
+      description: Settings for the slot.
+      example: |
+        lock_code: 123456
+        user_name: John Doe
+        access_count:
+          enabled: true
+          limit: 15
+        date_range:
+          enabled: true
+          begin_date: '2020-01-01'
+          end_date: '2020-12-31'
+        day_of_week:
+          enabled: true
+          days:
+            monday:
+            begin_time: '08:00'
+            end_time: '17:00'
+            inclusive: true
+other: |
+  lock_code: 123456 [int, Mandatory]
+  user_name: John Doe [string, Mandatory]
+  access_count: [Optional]
+    enabled: [boolean, Mandatory]
+    limit: [integer, Mandatory]
+  date_range: [Optional]
+    enabled: [boolean, Mandatory]
+    begin_date: [date, Mandatory]
+    end_date: [date, Mandatory]
+  day_of_week: [Optional]
+    monday: [day(list), Mandatory, "monday, tuesday, ..."]
+      enabled: [boolean, Mandatory]
+      begin_time: [time, Mandatory]
+      end_time: [time, Mandatory]
+      inclusive: [boolean, Mandatory, True(Default)]
+    tuesday...

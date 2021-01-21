@@ -1,0 +1,14 @@
+{
+  "domain": "lock_manager",
+  "name": "Lock Manager",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/hello_world",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": [
+    "@ccsliinc"
+  ]
+}
